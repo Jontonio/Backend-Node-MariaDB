@@ -5,9 +5,7 @@ const getUsuarios = async (req = Request, res = Response) => {
 
     const usuarios = await Usuario.findAll();
 
-    res.json({
-        usuarios
-    });
+    res.json(usuarios);
 };
 
 const getUsuario = async (req =  Request, res = Response) => {
@@ -16,7 +14,7 @@ const getUsuario = async (req =  Request, res = Response) => {
     const usuario = await Usuario.findByPk(id);
 
     if(usuario){
-        res.json({ usuario });
+        res.json(usuario);
     } else {
         res.status(404).json({ msg:`el usuario con id: ${id} no existe`});
     }
@@ -44,7 +42,7 @@ const postUsuario = async (req =  Request, res = Response) => {
 
         const usuario = new Usuario(body);
         await usuario.save();
-        res.json({ usuario });
+        res.json(usuario);
     
     } catch (error) {
         console.log(error);

@@ -20,6 +20,7 @@ class Server {
             console.log('base de datos online');
             
         } catch (error) {
+            console.log('Error al conectarse a la BD')
             throw new Error(error);
         }   
     }
